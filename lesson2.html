@@ -4,9 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"/>
     <title>Lesson 2</title>
 </head>
 <body>
-    
+    <div id="mainbody">
+        <form>
+        <div id="mail">
+            <label>Email </label><br>
+            <input type="text" id="mailInput"/>
+        </div>
+        <div id="pass">
+            <label>Password</label><br>
+            <input type="text" id="pwInput"/>
+        </div>
+        <br>
+        <div id="adrs">
+            <label>Address</label><br>
+            <input type="text" id="adrsInput" value="123 Main St"/>
+        </div>
+        <br>
+        <div id="adrs2">
+            <label>Address 2</label><br>
+            <input type="text" id="adrs2Input" value="Apartment, studio of floor"/>
+        </div>
+        <br>
+        <div id="city">
+            <label>City</label><br>
+            <input type="text" id="cityInput"/>
+        </div>
+        <div id="state">
+            <label>State</label><br>
+            <select name="State" id="stateSelect" value="Choose...">
+                <option value="state1">State 1</option>
+                <option value="state2">State 2</option>
+                <option value="state3">State 3</option>
+            </select>
+        </div>
+        <div id="zip">
+            <label>Zip</label><br>
+            <input type="text" id="zipInput"/>
+        </div>
+        <br>
+        <div id ="checkbox">
+            <input type="checkbox" id = "checkInput">  Check me out 
+        </div>
+        <br>
+        <input type="submit" value="Sign in" id = "submitBtn"/>
+        </form>
+    </div>
 </body>
 </html>

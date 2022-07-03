@@ -1,0 +1,88 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+#mainbody {
+    width: 896px;
+    height: 420px;
+    background-color: #F5F5DD;
+    box-sizing: border-box;
+}
+#mail {
+    margin-left: 20px;
+    margin-right: 10px;
+    padding-top: 16px;
+    float: left; 
+}
+#mailInput {
+    width: 420px;
+    height: 30px;
+    margin-top: 10px;
+    background-color: #FFFFFF;
+}
+#pass {
+    padding-top: 16px;
+}
+#pwInput {
+    width: 420px;
+    height: 30px;
+    margin-top: 10px;
+    background-color: #FFFFFF;
+}
+#adrs,#adrs2 {
+    margin-left: 20px;
+    box-sizing: border-box;
+}
+#adrsInput, #adrs2Input {
+    width: 856px;
+    height: 30px;
+    margin-top: 10px;
+    background-color: #FFFFFF;
+}
+#city {
+    float: left;
+    margin-left: 20px;
+}
+#cityInput {
+    width: 420px;
+    height: 30px;
+    margin-top: 10px;
+    background-color: #FFFFFF;
+}
+#state {
+    float: left;
+    margin-left: 10px;
+}
+#stateSelect {
+    width: 276px;
+    height: 34px;
+    margin-top: 10px;
+    background-color: #FFFFFF;
+}
+#zip {
+    float: left;
+    margin-left: 10px;
+}
+#zipInput {
+    width: 132px;
+    height: 30px;
+    margin-top: 10px;
+    background-color: #FFFFFF;
+}
+#checkbox {
+    padding-top: 16px;
+    margin-left: 20px;
+    display: inline-block;
+}
+#submitBtn {
+    background-color: #0079FA;
+    color: #D6EBFE;
+    margin-top: 16px;
+    margin-left: 20px;
+    width: 60px;
+    height: 30px;
+    text-align: center;
+}
+input, select {
+    border-color: #D4D9DA;
+}
