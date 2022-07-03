@@ -85,4 +85,8 @@
 }
 input, select {
     border-color: #D4D9DA;
+    color: #818A91;
+}
+label {
+    color: #414444;
 }
