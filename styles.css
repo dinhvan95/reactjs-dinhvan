@@ -64,7 +64,7 @@
     margin-left: 10px;
 }
 #zipInput {
-    width: 132px;
+    width: 138px;
     height: 30px;
     margin-top: 10px;
     background-color: #FFFFFF;
@@ -83,6 +83,15 @@
     height: 30px;
     text-align: center;
 }
-input, select {
+input {
     border-color: #D4D9DA;
+    color: #818A91;
+    font-size:16px;
+}
+select {
+    border-color: #D4D9DA;
+    color: #5C6268;
+}
+label {
+    color: #414444;
 }
