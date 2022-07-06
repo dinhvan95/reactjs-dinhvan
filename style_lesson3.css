@@ -14,14 +14,14 @@
 }
 .bodymenu h3 {
     float: left;
-    width: 200px;
+    width: 30%;
     font-size: 20px;
     text-align: center;
     color: #f3f3f3;
     margin: 15px 60px;
 }
 .bodymenu ul {
-    width: 72%;
+    width: 50%;
     height: 60px;
     display: inline-block;
 }
@@ -75,17 +75,16 @@
 img {
     width: 20%;
     height: auto;
-    margin-left: 480px;
-    margin-top: 50px;
+    margin: 2% 40%;
 }
 form {
     width: 80%;
-    margin-left: 400px;
-    margin-top: 30px;
+    margin: auto;
+    margin: 5% 18%;
 }
 form input {
     height: 40px;
-    width: 400px;
+    width: 80%;
     border-left: none;
     border-right: none;
     border-bottom: none;
