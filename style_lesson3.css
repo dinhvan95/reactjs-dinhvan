@@ -1,0 +1,93 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+#container {
+    width: 100%;
+    height: 100%;
+}
+.menu ul {
+    background: #333333;
+    width: 100%;
+    height: 60px;
+    display: inline-block;
+}
+.bodymenu h3 {
+    float: left;
+    width: 200px;
+    font-size: 20px;
+    text-align: center;
+    color: #f3f3f3;
+    margin: 15px 60px;
+}
+.bodymenu ul {
+    width: 72%;
+    height: 60px;
+    display: inline-block;
+}
+.menu ul li {
+    width: 90px;
+    float: left;
+    height: 50px;
+    text-align: center;
+    list-style-type: none;
+    padding-top: 20px;
+}
+.bodymenu {
+    background: #2A3D51;
+    width: 80%;
+    height: 60px;
+    margin: auto;
+}
+.bodymenu ul li {
+    width: auto;
+    padding: 10px 20px;
+    float: right;
+    height: 30px;
+    margin-right: 5px;
+    margin-top: 5px;
+    text-align: center;
+    list-style-type: none;
+}
+.menu ul li a {
+    text-decoration: none;
+    color: #F3F3F3;
+    font-size: large;
+}
+.bodymenu ul li a {
+    text-decoration: none;
+    color: #F3F3F3;
+    font-size: medium;
+}
+.menu ul li:hover {
+    background-color: #4CAF50;
+}
+.bodymenu ul li:hover {
+    background-color: #19232F;
+}
+.inputBoard {
+    width: 80%;
+    height: 500px;
+    margin: auto;
+    border: 1px solid #19232F;
+    border-top: none;
+}
+img {
+    width: 20%;
+    height: auto;
+    margin-left: 480px;
+    margin-top: 50px;
+}
+form {
+    width: 80%;
+    margin-left: 400px;
+    margin-top: 30px;
+}
+form input {
+    height: 40px;
+    width: 400px;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-top: 1px solid #c3bcbc;
+}
