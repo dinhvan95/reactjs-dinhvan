@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 5</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="text-secondary">Exercise for JavaScript</h1>
+        </div>
+        <div class="row m-3 bg-secondary ">
+            <div class="col-sm-6 border p-3">
+                <h2>Exercise 1</h2>
+                <button type = "button" class="btn btn-primary bg-success text-dark" onclick="showNumber()">Kết quả</button>
+                <div id = "prime" class="pt-3"></div>
+            </div>
+            <div class="col-sm-6 border p-3">
+                <h2 class="m-2">Exercise 2</h2>
+                <p class="m-2">Danh sách lớp</p>
+                <div class="row p-2">
+                    <button type="button" class="btn btn-primary bg-success text-dark m-2 col-sm-2" onclick="showStudent()">Show List</button>
+                <div class="dropdown col-sm-3 m-2">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle = "dropdown">Order</button>
+                    <div class="dropdown-menu">
+                        <button type = "button" class="btn btn-secondary dropdown-item" onclick="nameOrdered()">Name</button>
+                        <button type = "button" class="btn btn-secondary dropdown-item" onclick="scoreOrdered()">Score</button>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary bg-success text-dark m-2 col-sm-2" onclick="resetTbl()">Reset</button>
+                </div>
+                <table id = "studentTable" class="table table-striped table-bordered m-2">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
