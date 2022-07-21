@@ -2,15 +2,17 @@
     margin: 0;
     padding: 0;
 }
+
 #mainbody {
-  background: url("main_ui_img.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 310px;
-  height: 545px;
-  margin: 0% 40%;
-  padding-top: 300px;
+    background: url("main_ui_img.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 310px;
+    height: 545px;
+    margin: 0% 40%;
+    padding-top: 300px;
 }
+
 .icon_top {
     background: url("top_icon.png");
     background-repeat: no-repeat;
@@ -19,6 +21,7 @@
     height: 30px;
     margin: 0% 80%;
 }
+
 .icon_next {
     background: url("next_icon.png");
     background-repeat: no-repeat;
@@ -27,6 +30,7 @@
     height: 30px;
     margin: 0% 80%;
 }
+
 .icon_mess {
     background: url("icon_mess.png");
     background-repeat: no-repeat;
@@ -35,6 +39,7 @@
     height: 30px;
     margin: 0% 80%;
 }
+
 .icon_alarm {
     background: url("icon_alarm.png");
     background-repeat: no-repeat;
