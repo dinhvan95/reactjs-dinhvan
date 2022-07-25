@@ -94,7 +94,7 @@ function searchName() {
   tBodyRef.innerHTML = "";
   var studentSearch = [];
   for (i in students) {
-    if (students[i].name.toLowerCase().indexOf(nameSearch.toLowerCase()) > -1) {
+    if(students[i].name.toLowerCase().search(nameSearch.toLowerCase()) > -1){
       studentSearch.push(students[i]);
     }
   }
