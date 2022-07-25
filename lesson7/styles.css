@@ -1,0 +1,28 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+#mainbody {
+    background-color: #F5F5DD;
+    height: auto;
+}
+#submitBtn:disabled, #addBtn:disabled {
+    background-color: #414444;
+    color: #D6EBFE;
+}
+#submitBtn {
+    background-color: #0079FA;
+    color: #D6EBFE;
+}
+#addBtn {
+    background-color: #ee26b9;
+    color: #D6EBFE;
+}
+#checkInput, #checkInput2, #checkInput3 {
+    width: 15px;
+    height: 15px;
+}
+.required:after {
+    content:" *";
+    color: red;
+  }
