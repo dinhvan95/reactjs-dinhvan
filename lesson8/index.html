@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +12,37 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
 <body>
-    
+    <div class="container">
+        <div class="row">
+            <div class="form-group  col-sm-8">
+                <label for="textarea">Insert code</label>
+                <textarea class="form-control" id="textarea1" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group  col-sm-8">
+                <label for="textarea">Format convention</label>
+                <textarea class="form-control" id="textarea2" rows="3"></textarea>
+            </div>
+        </div>
+        <div>
+            <button type="button" class="btn bg-primary" id="submitBtn" onclick="convertInput()">Result exercise 1</button>
+        </div>
+        <div class="row">
+            <form>
+                <div class="form-group m-3">
+                    <label>Nhập chuỗi</label>
+                    <input id="exe2" type="text" class="form-control"/>
+                </div>
+                <button type="button" id="btnConfirm" class = "btn m-3 bg-primary" onclick="exercise2()">Result exercise2</button>
+            </form>
+        </div>
+        <div class="row">
+            <p id="result" class="m-3"></p>
+        </div>
+    </div>
 </body>
+
 </html>
