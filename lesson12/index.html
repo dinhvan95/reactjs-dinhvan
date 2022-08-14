@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+    <style>
+        .sale-off {
+            text-decoration: line-through;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="jumbotron text-center">
+        <h1>My First Bootstrap Page</h1>
+        <p>Resize this responsive page to see the effect!</p>
+
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://www.w3schools.com/howto/img_nature_wide.jpg" alt="Los Angeles" width="1100"
+                        height="500">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.w3schools.com/howto/img_nature_wide.jpg" alt="Chicago" width="1100"
+                        height="500">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.w3schools.com/howto/img_nature_wide.jpg" alt="New York" width="1100"
+                        height="500">
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" style="margin:24px 0;">
+            <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navb">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navb">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="javascript:void(0)">Disabled</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <a href="#" class="mr-sm-3" id="your-cart" style="max-width: 38px; max-height: 38px"><img
+                            class="img-thumbnail" src="cart.png"></a>
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" id="search">
+                    <button class="btn btn-success my-2 my-sm-0" type="button" id="btn-search">Search</button>
+                </form>
+            </div>
+        </nav>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Products</li>
+                <li class="offset-md-9">
+                    <select class="form-control form-control-sm" id="sort">
+                        <option>Order By</option>
+                        <option>Decrease</option>
+                        <option>Increase</option>
+                    </select>
+                </li>
+            </ol>
+
+        </nav>
+
+        <div class="row mb-3 mt-3" id="products">
+            <div class="row text-center m-1">
+                <nav aria-label="...">
+                    <ul class="pagination pagination-sm" id="paginate">
+                    </ul>
+                </nav>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5>THÔNG TIN</h5>
+                    <p><a href="#">Giới thiệu</a></p>
+                    <p><a href="#">Sản phẩm</a></p>
+                    <p><a href="#">Tin tức</a></p>
+                    <p><a href="#">Tuyển dụng</a></p>
+                    <p><a href="#">Liên hệ</a></p>
+                </div>
+                <div class="col-sm-3">
+                    <h3>Column 2</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+                <div class="col-sm-3">
+                    <h3>Column 3</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+                <div class="col-sm-3">
+                    <h3>Column 3</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(function () {
+                showPaginate(1);
+
+                $("body").on("click", ".page-item", function () {
+                    let currentPage = parseInt($(this).text());
+                    showPaginate(currentPage);
+                });
+
+                function showPaginate(currentPage) {
+                    let numberPerPage = 4;
+                    let products = $('.product');
+                    let productTotal = products.length;
+
+                    let from = (currentPage - 1) * numberPerPage + 1;
+                    let to = currentPage * numberPerPage;
+
+                    products.hide();
+
+                    products.each(function (i) {
+                        if (from <= i && i <= to) {
+                            $(this).show();
+                        } else {
+                            $(this).hide();
+                        }
+                    });
+
+                    let paginateHTML = '';
+                    let pageCount = Math.ceil(productTotal / numberPerPage);
+                    for (let i = 1; i <= pageCount; i++) {
+                        if (i == currentPage) {
+                            paginateHTML += `<li class="page-item active" aria-current = "page"><a class="page-link" href="#">${i}</a></li>`;
+                        } else {
+                            paginateHTML += `<li class="page-item"><a class="page-link" href="#">${i}</a></li>`;
+                        }
+                    }
+                    $('#paginate').empty().append(paginateHTML);
+                }
+
+                $("body").on("change", "#sort", function () {
+                    let sortType = $(this).val();
+
+                    sortProduct(sortType);
+                });
+                function sortProduct(sortType) {
+                    let listPrice = [];
+                    let products = $('.product');
+
+                    products.each(function () {
+                        let product = $(this);
+                        let iElement = product.find('i:not(.sale-off');
+                        let price = iElement.text().replace('$', '');
+                        $(this).addClass(price);
+                        listPrice.push(parseInt(price));
+                    });
+                    if (sortType == "Increase") {
+                        listPrice.sort(function (a, b) { return a - b });
+                    }
+                    if (sortType == "Decrease") {
+                        listPrice.sort(function (a, b) { return b - a });
+                    }
+                    let productListSorted = [];
+                    listPrice.forEach(function (price) {
+                        productListSorted.push($('#products').find('.' + price));
+                    });
+                    $('.product').remove();
+                    $('#products').prepend(productListSorted);
+
+                    showPaginate(1);
+                }
+                $.get("https://jsonplaceholder.typicode.com/users", function (data, status) {
+                    if (status == 'success') {
+                        showData(data);
+                    }
+                });
+                function showData(data) {
+                    let productHTML = '';
+                    data.forEach(function (user) {
+                        productHTML +=
+                            `<div class="col-sm-3 mb-3 product">
+                        <div class="card" style="">
+                            <img class="card-img-top" src="https://www.w3schools.com/bootstrap4/img_avatar1.png"
+                                alt="Card image" style="width:100%">
+                                <div class="card-body">
+                                    <h4 class="card-title">${user.name}</h4>
+                                    <p class="card-text">
+                                        <i class="sale-off">$1000</i> -> <i>$500</i>
+                                    </p>
+                                    <p>Description</p>
+                                    <a href="#" class="btn btn-primary" id="btn-buy">Buy</a>
+                                </div>
+                        </div>
+                    </div>`
+                            ;
+                    });
+                    $('#products').prepend(productHTML);
+                }
+                $('#btn-search').click(function () {
+                    $.post(
+                        "https://jsonplaceholder.typicode.com/users",
+                        {
+                            id: 11,
+                            name: "Dinh Van",
+                            username: "ldv989",
+                            email: "ldv@gmail"
+                        },
+                        function (data, status) {
+                            console.log(data);
+                            console.log(status);
+                        });
+                });
+                let content = '';
+                $("body").on("click", "#btn-buy", function () {
+                    let parentElementClicked = $(this).parent().text();
+                    
+                });
+            });
+        </script>
+</body>
+
+</html>

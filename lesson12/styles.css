@@ -1,0 +1,4 @@
+.img-thumbnail:after {
+    content: "0";
+    color: hsl(249, 100%, 50%);
+}
