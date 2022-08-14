@@ -15,46 +15,7 @@
             text-decoration: line-through;
         }
     </style>
-    <script>
-        function compareIncrease() {
-            $(".product").hide().each(
-                function () {
-                    console.log(`${parseFloat($(this).find(".card-text").text().split(" -> ")[0].trim().slice(1))}`);
-                    $(this).toArray().sort(
-                        (a, b) =>
-                            parseFloat(a.find(".card-text").text().split(" -> ")[0].trim().slice(1)) -
-                            parseFloat(b.find(".card-text").text().split(" -> ")[0].trim().slice(1))
-                    )
-                }).show();
-        }
-        function compareDecrease() {
-            $(".product").hide().each(
-                function () {
-                    $(this).toArray().sort(
-                        (a, b) =>
-                            parseFloat(b.find(".card-text").text().split(" -> ")[0].trim().slice(1)) -
-                            parseFloat(a.find(".card-text").text().split(" -> ")[0].trim().slice(1))
-                    );
-                }).show();
-        }
-        $(function () {
-            $("#search").keyup(function () {
-                let keyword = $(this).val().toLowerCase().trim();
-                $(".product").hide().filter(function () {
-                    return $(this).text().toLowerCase().trim().replace("Buy", "").indexOf(keyword) > -1;
-                }).show();
-            });
-            $('select').on('change', function (e) {
-                var valueSelected = this.value;
-                if (valueSelected == "Increase") {
-                    compareIncrease();
-                }
-                if (valueSelected == "Decrease") {
-                    compareDecrease();
-                }
-            });
-        });
-    </script>
+
 </head>
 
 <body>
@@ -119,6 +80,8 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
+                    <a href="cart.html" class="mr-sm-3" id="your_cart" style="max-width: 38px; max-height: 38px"><img
+                            class="img-thumbnail" src="cart.png"></a>
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" id="search">
                     <button class="btn btn-success my-2 my-sm-0" type="button">Search</button>
                 </form>
@@ -130,7 +93,7 @@
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Products</li>
                 <li class="offset-md-9">
-                    <select class="form-control form-control-sm">
+                    <select class="form-control form-control-sm" id="sort">
                         <option>Order By</option>
                         <option>Decrease</option>
                         <option>Increase</option>
@@ -379,7 +342,12 @@
                 </div>
             </div>
         </div>
-
+        <div class="row text-center m-1">
+            <nav aria-label="...">
+                <ul class="pagination pagination-sm" id="paginate">
+                </ul>
+            </nav>
+        </div>
         <hr>
         <div class="row">
             <div class="col-sm-3">
@@ -407,7 +375,101 @@
             </div>
         </div>
     </div>
+    <script>
+        $(function () {
+            $("#search").keyup(function () {
+                let keyword = $(this).val().toLowerCase().trim();
+                $(".product").hide().filter(function () {
+                    return $(this).text().toLowerCase().trim().replace("Buy", "").indexOf(keyword) > -1;
+                }).show();
+            });
+            showPaginate(1);
 
+            $("body").on("click", ".page-item", function () {
+                let currentPage = parseInt($(this).text());
+                showPaginate(currentPage);
+            });
+
+            function showPaginate(currentPage) {
+                let numberPerPage = 4;
+                let products = $('.product');
+                let productTotal = products.length;
+
+                let from = (currentPage - 1) * numberPerPage + 1;
+                let to = currentPage * numberPerPage;
+
+                products.hide();
+
+                products.each(function (i) {
+                    if (from <= i && i <= to) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+
+                let paginateHTML = '';
+                let pageCount = Math.ceil(productTotal / numberPerPage);
+                console.log(pageCount);
+                for (let i = 1; i <= pageCount; i++) {
+                    if (i == currentPage) {
+                        paginateHTML += `<li class="page-item active" aria-current = "page"><a class="page-link" href="#">${i}</a></li>`;
+                    } else {
+                        paginateHTML += `<li class="page-item"><a class="page-link" href="#">${i}</a></li>`;
+                    }
+                }
+                $('#paginate').empty().append(paginateHTML);
+            }
+
+            $("body").on("change", "#sort", function () {
+                let sortType = $(this).val();
+
+                sortProduct(sortType);
+            });
+            function sortProduct(sortType) {
+                let listPrice = [];
+                let products = $('.product');
+
+                products.each(function () {
+                    let product = $(this);
+                    let iElement = product.find('i:not(.sale-off');
+                    let price = iElement.text().replace('$', '');
+                    $(this).addClass(price);
+                    listPrice.push(parseInt(price));
+                });
+                if (sortType == "Increase") {
+                    listPrice.sort(function (a, b) { return a - b });
+                }
+                if (sortType == "Decrease") {
+                    listPrice.sort(function (a, b) { return b - a });
+                }
+                let productListSorted = [];
+                listPrice.forEach(function (price) {
+                    productListSorted.push($('#products').find('.' + price));
+                });
+                $('.product').remove();
+                $('#products').prepend(productListSorted);
+
+                showPaginate(1);
+            }
+        });
+        let listProductChoosed = [];
+        $("body").on("click", ".btn", function () {
+            let productChoosed = {};
+            let parentElementClicked = $(this).parent();
+            var cardTitle = parentElementClicked.find('.card-title').text();
+            var cardPrice = +parentElementClicked.find('i:not(.sale-off').text().replace('$','');
+            var cardDescription = parentElementClicked.find('p:not(.card-text)').text();
+            console.log(`${cardTitle} - ${cardPrice} - ${cardDescription}`);
+            productChoosed.cardTitle = cardTitle;
+            productChoosed.cardPrice = cardPrice;
+            productChoosed.cardDescription = cardDescription;
+            listProductChoosed.push(productChoosed);
+        });
+        $("body").on("click", "#your_cart", function () {
+            localStorage.setItem("productsChoosed",JSON.stringify(listProductChoosed));         
+        });
+    </script>
 </body>
 
 </html>

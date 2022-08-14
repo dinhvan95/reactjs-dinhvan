@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 13</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h3>Bài 1</h3>
+        <div class="row">
+            <div class="form-group  col-sm-4">
+                <label class="m-2" for="inputMoney">Nhập số tiền muốn rút</label>
+                <input class="form-control m-2" id="inputMoney"></input>
+                <button class="btn btn-primary m-2" id="btnConfirm">Rút tiền</button>
+            </div>
+        </div>
+        <div class="row">
+            <h6 class="m-4" id="resultWithdraw"></h6>
+        </div>
+        <h3>Bài 2</h3>
+        <div class="row">
+            <div class="form-group  col-sm-4">
+                <label class="m-2" for="inputMoney2">Nhập số tiền muốn rút</label>
+                <input class="form-control m-2" id="inputMoney2"></input>
+                <button class="btn btn-primary m-2" id="btnConfirm2">Rút tiền</button>
+            </div>
+        </div>
+        <div class="row">
+            <h6 class="m-4" id="resultWithdraw2"></h6>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $("#btnConfirm").click(function () {
+                var money = parseInt($("#inputMoney").val());
+                var quantity500 = parseInt((money / 2) / 500000);
+                var quantity200 = parseInt((money / 3) / 200000);
+                var quantity100 = parseInt((money / 6) / 100000);
+                var remain = money - (quantity500 * 500000 + quantity200 * 200000 + quantity100 * 100000);
+                if (remain % 50000 != 0) {
+                    $("#resultWithdraw").text("Số tiền phải là bội số của 50000");
+                } else {
+                    $("#resultWithdraw").text(`
+                    Bạn vừa rút được 
+                    ${quantity500} tờ 500000đ, 
+                    ${quantity200} tờ 200000đ, 
+                    ${quantity100} tờ 100000đ,
+                    ${remain / 50000} tờ 50000đ
+                    `);
+                }
+            });
+            var currentMoney = 200000000;
+            var maxQuantity500 = 200;
+            var maxQuantity200 = 250;
+            var maxQuantity100 = 333;
+            var maxQuantity50 = 334;
+            $("#btnConfirm2").click(function () {
+                var money = parseInt($("#inputMoney2").val());
+                if (money > currentMoney) {
+                    $("#resultWithdraw2").text("Số tiền rút vượt quá số tiền cho phép");
+                } else {
+                    if (money % 50000 != 0) {
+                        $("#resultWithdraw2").text("Số tiền phải là bội số của 50000");
+                    } else {
+                        var quantity500 = parseInt((58 * money / 100) / 500000);
+                        var quantity200 = parseInt((23 * money / 100) / 200000);
+                        var quantity100 = parseInt((11 * money / 100) / 100000);
+                        var quantity50 = (money - (quantity500 * 500000 + quantity200 * 200000 + quantity100 * 100000)) / 50000;
+                        if (quantity500 < maxQuantity500 && quantity200 < maxQuantity200 && quantity100 < maxQuantity100 && quantity50 < maxQuantity50) {
+                            $("#resultWithdraw2").text(`
+                            Bạn vừa rút được 
+                            ${quantity500} tờ 500000đ, 
+                            ${quantity200} tờ 200000đ, 
+                            ${quantity100} tờ 100000đ,
+                            ${quantity50} tờ 50000đ
+                        `);
+                            currentMoney -= money;
+                            maxQuantity500 -= quantity500;
+                            maxQuantity200 -= quantity200;
+                            maxQuantity100 -= quantity100;
+                            maxQuantity50 -= quantity50;
+                            console.log(currentMoney);
+                            console.log(maxQuantity500);
+                            console.log(maxQuantity200);
+                            console.log(maxQuantity100);
+                            console.log(maxQuantity50);
+                        } else {
+                            $("#resultWithdraw2").text("Máy lỗi đang đợi bảo trì");
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
